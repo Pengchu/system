@@ -1,0 +1,98 @@
+/*!
+ * login css style 
+ * Authors MINGHENGYI.
+ * Time 2019/5/21.
+ */
+@charset 'utf-8';
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	font-family: "Microsoft YaHei";
+	background-color: #f9f9fb;
+	min-height: 796px;
+}
+
+a:hover, a:focus {
+	text-decoration: none;
+    color: #68798a;
+    outline: 0!important;
+}
+
+.bg-default {
+    background-color: #dedede !important
+}
+
+.h7 {
+	font-size: 0.9rem;
+}
+.h8 {
+	font-size: 0.8rem;
+}
+.h9 {
+	font-size: 0.75rem;
+}
+
+.mt--5 {
+	margin-top: -4rem;
+}
+
+.row {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.links a:hover {
+	text-decoration: none;
+	color: #fff;
+}
+
+.input-group-prepend .feather, .sys-panel-footer .feather {
+	transform: scale(0.8);
+}
+
+.sys-container {
+	height: 100%;
+}
+.sys-content {
+	width: 789px;
+	height: 515px;
+}
+
+.sys-access input[type="radio"] {
+	display: none;
+}
+
+.sys-access-item label {
+	background-color: #dedede;
+}
+
+.sys-access-item.active label{
+	background-color: #007bff;
+	color: white;
+}
+
+.form-panel-body .input-group-text, .form-panel-body .form-control {
+	border-color: #eaeaea;
+}
+
+.form-panel-body .form-control {
+	height: calc(2em + .75rem + 2px);
+}
+
+.form-panel-body .position-absolute {
+	top: 0.5rem;
+	left: 0.5rem;
+}
+
+.copyright {
+	left: 0;
+	bottom: 0;
+}
+
+.copyright p {
+	color: #999999;
+}

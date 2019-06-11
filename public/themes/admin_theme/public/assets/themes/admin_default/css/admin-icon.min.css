@@ -1,0 +1,829 @@
+﻿@font-face {
+    font-family: 'admin-icons';
+    src: url('../fonts/admin-icons.eot');
+    src: url('../fonts/admin-icons.svg') format('svg'), url('../fonts/admin-icons.eot') format('embedded-opentype'), url('../fonts/admin-icons.ttf') format('truetype'), url('../fonts/admin-icons.woff') format('woff');
+    font-weight: normal;
+    font-style: normal
+}
+
+[class^="admin-pli-"]:before,
+[class*=" admin-pli-"]:before,
+[class^="admin-psi-"]:before,
+[class*=" admin-psi-"]:before {
+    font-family: 'admin-icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.admin-pli-add:before {
+    content: "\e900"
+}
+
+.admin-pli-add-cart:before {
+    content: "\e901"
+}
+
+.admin-pli-add-user:before {
+    content: "\e902"
+}
+
+.admin-pli-add-user-plus-star:before {
+    content: "\e903"
+}
+
+.admin-pli-arrow-down:before {
+    content: "\e904"
+}
+
+.admin-pli-arrow-left:before {
+    content: "\e905"
+}
+
+.admin-pli-arrow-left-2:before {
+    content: "\e906"
+}
+
+.admin-pli-arrow-out-right:before {
+    content: "\e907"
+}
+
+.admin-pli-arrow-right:before {
+    content: "\e908"
+}
+
+.admin-pli-arrow-right-2:before {
+    content: "\e909"
+}
+
+.admin-pli-arrow-up:before {
+    content: "\e90a"
+}
+
+.admin-pli-bag-coins:before {
+    content: "\e90b"
+}
+
+.admin-pli-bell:before {
+    content: "\e90c"
+}
+
+.admin-pli-building:before {
+    content: "\e90d"
+}
+
+.admin-pli-calendar-4:before {
+    content: "\e90e"
+}
+
+.admin-pli-camera-2:before {
+    content: "\e90f"
+}
+
+.admin-pli-check:before {
+    content: "\e910"
+}
+
+.admin-pli-check2:before {
+    content: "\e911"
+}
+
+.admin-pli-checked-user:before {
+    content: "\e912"
+}
+
+.admin-pli-clock:before {
+    content: "\e913"
+}
+
+.admin-pli-coding:before {
+    content: "\e914"
+}
+
+.admin-pli-coin:before {
+    content: "\e915"
+}
+
+.admin-pli-computer-secure:before {
+    content: "\e916"
+}
+
+.admin-pli-consulting:before {
+    content: "\e917"
+}
+
+.admin-pli-credit-card-2:before {
+    content: "\e918"
+}
+
+.admin-pli-cross:before {
+    content: "\e919"
+}
+
+.admin-pli-data-settings:before {
+    content: "\e91a"
+}
+
+.admin-pli-data-storage:before {
+    content: "\e91b"
+}
+
+.admin-pli-download-from-cloud:before {
+    content: "\e91c"
+}
+
+.admin-pli-download-window:before {
+    content: "\e91d"
+}
+
+.admin-pli-exclamation:before {
+    content: "\e91e"
+}
+
+.admin-pli-exclamation-circle:before {
+    content: "\e91f"
+}
+
+.admin-pli-facebook:before {
+    content: "\e920"
+}
+
+.admin-pli-facebook-2:before {
+    content: "\e921"
+}
+
+.admin-pli-file:before {
+    content: "\e922"
+}
+
+.admin-pli-file-add:before {
+    content: "\e923"
+}
+
+.admin-pli-file-csv:before {
+    content: "\e924"
+}
+
+.admin-pli-file-edit:before {
+    content: "\e925"
+}
+
+.admin-pli-file-excel:before {
+    content: "\e926"
+}
+
+.admin-pli-file-html:before {
+    content: "\e927"
+}
+
+.admin-pli-file-jpg:before {
+    content: "\e928"
+}
+
+.admin-pli-file-text-image:before {
+    content: "\e929"
+}
+
+.admin-pli-file-txt:before {
+    content: "\e92a"
+}
+
+.admin-pli-file-word:before {
+    content: "\e92b"
+}
+
+.admin-pli-file-zip:before {
+    content: "\e92c"
+}
+
+.admin-pli-find-user:before {
+    content: "\e92d"
+}
+
+.admin-pli-fire-flame-2:before {
+    content: "\e92e"
+}
+
+.admin-pli-folder-with-document:before {
+    content: "\e92f"
+}
+
+.admin-pli-gear:before {
+    content: "\e930"
+}
+
+.admin-pli-go-top:before {
+    content: "\e931"
+}
+
+.admin-pli-google-plus:before {
+    content: "\e932"
+}
+
+.admin-pli-heart-2:before {
+    content: "\e933"
+}
+
+.admin-pli-home:before {
+    content: "\e934"
+}
+
+.admin-pli-idea-2:before {
+    content: "\e935"
+}
+
+.admin-pli-inbox-full:before {
+    content: "\e936"
+}
+
+.admin-pli-inbox-into:before {
+    content: "\e937"
+}
+
+.admin-pli-information:before {
+    content: "\e938"
+}
+
+.admin-pli-instagram:before {
+    content: "\e939"
+}
+
+.admin-pli-internet:before {
+    content: "\e93a"
+}
+
+.admin-pli-laptop:before {
+    content: "\e93b"
+}
+
+.admin-pli-layout-grid:before {
+    content: "\e93c"
+}
+
+.admin-pli-left-4:before {
+    content: "\e93d"
+}
+
+.admin-pli-like:before {
+    content: "\e93e"
+}
+
+.admin-pli-like-2:before {
+    content: "\e93f"
+}
+
+.admin-pli-location-2:before {
+    content: "\e940"
+}
+
+.admin-pli-lock-user:before {
+    content: "\e941"
+}
+
+.admin-pli-love-user:before {
+    content: "\e942"
+}
+
+.admin-pli-magnifi-glass:before {
+    content: "\e943"
+}
+
+.admin-pli-mail:before {
+    content: "\e944"
+}
+
+.admin-pli-mail-attachment:before {
+    content: "\e945"
+}
+
+.admin-pli-mail-block:before {
+    content: "\e946"
+}
+
+.admin-pli-mail-favorite:before {
+    content: "\e947"
+}
+
+.admin-pli-mail-remove:before {
+    content: "\e948"
+}
+
+.admin-pli-mail-send:before {
+    content: "\e949"
+}
+
+.admin-pli-mail-unread:before {
+    content: "\e94a"
+}
+
+.admin-pli-male:before {
+    content: "\e94b"
+}
+
+.admin-pli-male-female:before {
+    content: "\e94c"
+}
+
+.admin-pli-map:before {
+    content: "\e94d"
+}
+
+.admin-pli-map-2:before {
+    content: "\e94e"
+}
+
+.admin-pli-map-marker:before {
+    content: "\e94f"
+}
+
+.admin-pli-map-marker-2:before {
+    content: "\e950"
+}
+
+.admin-pli-medal-2:before {
+    content: "\e951"
+}
+
+.admin-pli-mine:before {
+    content: "\e952"
+}
+
+.admin-pli-monitor-2:before {
+    content: "\e953"
+}
+
+.admin-pli-office:before {
+    content: "\e954"
+}
+
+.admin-pli-old-telephone:before {
+    content: "\e955"
+}
+
+.admin-pli-paper-plane:before {
+    content: "\e956"
+}
+
+.admin-pli-paperclip:before {
+    content: "\e957"
+}
+
+.admin-pli-plus:before {
+    content: "\e958"
+}
+
+.admin-pli-printer:before {
+    content: "\e959"
+}
+
+.admin-pli-question:before {
+    content: "\e95a"
+}
+
+.admin-pli-question-circle:before {
+    content: "\e95b"
+}
+
+.admin-pli-recycling:before {
+    content: "\e95c"
+}
+
+.admin-pli-refresh:before {
+    content: "\e95d"
+}
+
+.admin-pli-reload-3:before {
+    content: "\e95e"
+}
+
+.admin-pli-remove:before {
+    content: "\e95f"
+}
+
+.admin-pli-remove-user:before {
+    content: "\e960"
+}
+
+.admin-pli-repeat-2:before {
+    content: "\e961"
+}
+
+.admin-pli-right-4:before {
+    content: "\e962"
+}
+
+.admin-pli-share:before {
+    content: "\e963"
+}
+
+.admin-pli-shopping-bag:before {
+    content: "\e964"
+}
+
+.admin-pli-shopping-basket:before {
+    content: "\e965"
+}
+
+.admin-pli-shopping-cart:before {
+    content: "\e966"
+}
+
+.admin-pli-smartphone-3:before {
+    content: "\e967"
+}
+
+.admin-pli-speech-bubble-2:before {
+    content: "\e968"
+}
+
+.admin-pli-speech-bubble-3:before {
+    content: "\e969"
+}
+
+.admin-pli-speech-bubble-4:before {
+    content: "\e96a"
+}
+
+.admin-pli-speech-bubble-5:before {
+    content: "\e96b"
+}
+
+.admin-pli-speech-bubble-7:before {
+    content: "\e96c"
+}
+
+.admin-pli-star:before {
+    content: "\e96d"
+}
+
+.admin-pli-support:before {
+    content: "\e96e"
+}
+
+.admin-pli-tablet-2:before {
+    content: "\e96f"
+}
+
+.admin-pli-tactic:before {
+    content: "\e970"
+}
+
+.admin-pli-tag:before {
+    content: "\e971"
+}
+
+.admin-pli-tag-2:before {
+    content: "\e972"
+}
+
+.admin-pli-tag-3:before {
+    content: "\e973"
+}
+
+.admin-pli-temperature:before {
+    content: "\e974"
+}
+
+.admin-pli-twitter:before {
+    content: "\e975"
+}
+
+.admin-pli-twitter-2:before {
+    content: "\e976"
+}
+
+.admin-pli-unlike:before {
+    content: "\e977"
+}
+
+.admin-pli-unlike-2:before {
+    content: "\e978"
+}
+
+.admin-pli-unlock:before {
+    content: "\e979"
+}
+
+.admin-pli-upload-to-cloud:before {
+    content: "\e97a"
+}
+
+.admin-pli-video:before {
+    content: "\e97b"
+}
+
+.admin-pli-view-list:before {
+    content: "\e97c"
+}
+
+.admin-pli-wallet-2:before {
+    content: "\e97d"
+}
+
+.admin-pli-wrench:before {
+    content: "\e97e"
+}
+
+.admin-psi-add:before {
+    content: "\e97f"
+}
+
+.admin-psi-arrow-left:before {
+    content: "\e980"
+}
+
+.admin-psi-arrow-left-2:before {
+    content: "\e981"
+}
+
+.admin-psi-arrow-right:before {
+    content: "\e982"
+}
+
+.admin-psi-arrow-right-2:before {
+    content: "\e983"
+}
+
+.admin-psi-bar-chart:before {
+    content: "\e984"
+}
+
+.admin-psi-boot-2:before {
+    content: "\e985"
+}
+
+.admin-psi-building:before {
+    content: "\e986"
+}
+
+.admin-psi-car-coins:before {
+    content: "\e987"
+}
+
+.admin-psi-close:before {
+    content: "\e988"
+}
+
+.admin-psi-computer-secure:before {
+    content: "\e989"
+}
+
+.admin-psi-consulting:before {
+    content: "\e98a"
+}
+
+.admin-psi-download-from-cloud:before {
+    content: "\e98b"
+}
+
+.admin-psi-facebook:before {
+    content: "\e98c"
+}
+
+.admin-psi-facebook-2:before {
+    content: "\e98d"
+}
+
+.admin-psi-file:before {
+    content: "\e98e"
+}
+
+.admin-psi-file-csv:before {
+    content: "\e98f"
+}
+
+.admin-psi-file-excel:before {
+    content: "\e990"
+}
+
+.admin-psi-file-html:before {
+    content: "\e991"
+}
+
+.admin-psi-file-jpg:before {
+    content: "\e992"
+}
+
+.admin-psi-file-text-image:before {
+    content: "\e993"
+}
+
+.admin-psi-file-txt:before {
+    content: "\e994"
+}
+
+.admin-psi-file-word:before {
+    content: "\e995"
+}
+
+.admin-psi-file-zip:before {
+    content: "\e996"
+}
+
+.admin-psi-folder-organizing:before {
+    content: "\e997"
+}
+
+.admin-psi-gear:before {
+    content: "\e998"
+}
+
+.admin-psi-gear-2:before {
+    content: "\e999"
+}
+
+.admin-psi-google-plus:before {
+    content: "\e99a"
+}
+
+.admin-psi-happy:before {
+    content: "\e99b"
+}
+
+.admin-psi-heart-2:before {
+    content: "\e99c"
+}
+
+.admin-psi-home:before {
+    content: "\e99d"
+}
+
+.admin-psi-idea-2:before {
+    content: "\e99e"
+}
+
+.admin-psi-inbox-full:before {
+    content: "\e99f"
+}
+
+.admin-psi-information:before {
+    content: "\e9a0"
+}
+
+.admin-psi-instagram:before {
+    content: "\e9a1"
+}
+
+.admin-psi-internet:before {
+    content: "\e9a2"
+}
+
+.admin-psi-left-4:before {
+    content: "\e9a3"
+}
+
+.admin-psi-like:before {
+    content: "\e9a4"
+}
+
+.admin-psi-lock-2:before {
+    content: "\e9a5"
+}
+
+.admin-psi-mail:before {
+    content: "\e9a6"
+}
+
+.admin-psi-mail-favorite:before {
+    content: "\e9a7"
+}
+
+.admin-psi-mail-send:before {
+    content: "\e9a8"
+}
+
+.admin-psi-mail-unread:before {
+    content: "\e9a9"
+}
+
+.admin-psi-male:before {
+    content: "\e9aa"
+}
+
+.admin-psi-medal-2:before {
+    content: "\e9ab"
+}
+
+.admin-psi-office:before {
+    content: "\e9ac"
+}
+
+.admin-psi-paperclip:before {
+    content: "\e9ad"
+}
+
+.admin-psi-pen-5:before {
+    content: "\e9ae"
+}
+
+.admin-psi-printer:before {
+    content: "\e9af"
+}
+
+.admin-psi-receipt-4:before {
+    content: "\e9b0"
+}
+
+.admin-psi-recycling:before {
+    content: "\e9b1"
+}
+
+.admin-psi-remove:before {
+    content: "\e9b2"
+}
+
+.admin-psi-repair:before {
+    content: "\e9b3"
+}
+
+.admin-psi-repeat-2:before {
+    content: "\e9b4"
+}
+
+.admin-psi-right-4:before {
+    content: "\e9b5"
+}
+
+.admin-psi-share:before {
+    content: "\e9b6"
+}
+
+.admin-psi-sidebar-window:before {
+    content: "\e9b7"
+}
+
+.admin-psi-speech-bubble-2:before {
+    content: "\e9b8"
+}
+
+.admin-psi-speech-bubble-3:before {
+    content: "\e9b9"
+}
+
+.admin-psi-speech-bubble-4:before {
+    content: "\e9ba"
+}
+
+.admin-psi-speech-bubble-5:before {
+    content: "\e9bb"
+}
+
+.admin-psi-speech-bubble-comic-2:before {
+    content: "\e9bc"
+}
+
+.admin-psi-split-vertical-2:before {
+    content: "\e9bd"
+}
+
+.admin-psi-star:before {
+    content: "\e9be"
+}
+
+.admin-psi-tactic:before {
+    content: "\e9bf"
+}
+
+.admin-psi-tag:before {
+    content: "\e9c0"
+}
+
+.admin-psi-tag-2:before {
+    content: "\e9c1"
+}
+
+.admin-psi-tag-3:before {
+    content: "\e9c2"
+}
+
+.admin-psi-thunder:before {
+    content: "\e9c3"
+}
+
+.admin-psi-twitter:before {
+    content: "\e9c4"
+}
+
+.admin-psi-twitter-2:before {
+    content: "\e9c5"
+}
+
+.admin-psi-unlike:before {
+    content: "\e9c6"
+}
+
+.admin-psi-upload-to-cloud:before {
+    content: "\e9c7"
+}
+
+.admin-psi-warning-window:before {
+    content: "\e9c8"
+}

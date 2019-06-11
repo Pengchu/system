@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>登录 – {:lang('ADMIN_CENTER')}</title>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="robots" content="noindex,nofollow">
+    <!-- HTML5 shim for IE8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+    <link href="__STATIC__/js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__TMPL__/public/assets/themes/{:cmf_get_admin_style()}/css/login.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        if (window.parent !== window.self) {
+            document.write              = '';
+            window.parent.location.href = window.self.location.href;
+            setTimeout(function () {
+                document.body.innerHTML = '';
+            }, 0);
+        }
+    </script>
+</head>
+<!-- __TMPL__/public/assets/themes/{:cmf_get_admin_style()}/VFX/canvas.html -->
+
+<body class="">
+    <div id="container" class="sys-container position-relative d-flex justify-content-center align-items-center">
+        <div class="sys-content rounded-lg shadow mt--5">
+            <div class="row h-100">
+                <div class="col-md-5 rounded-left bg-dark">
+                    <div class="sys-panel p-4">
+                        <div class="sys-panel-header">
+                            <h6 class="text-white">欢迎登录</h6>
+                            <h5 class="text-white">后台管理系统</h5>
+                            <div class="links">
+                                <a href="{:url('home/index')}" class="h8 pr-3">首页</a>
+                                <a href="#" class="h8 pr-3">服务条款</a>
+                                <a href="#" class="h8 pr-3">关于我们</a>
+                            </div>
+                        </div>
+                        <div class="sys-panel-body p-2" style="height: 348px;">
+                            <iframe src="{:url('Vfx/init')}" frameborder="0" class="w-100 h-100 border-0"></iframe>
+                        </div>
+                        <div class="sys-panel-footer d-flex align-items-bottom">
+                            <a href="" class="h8">
+                                <span class="d-flex justify-content-center align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-help-circle">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                        <line x1="12" y1="17" x2="12" y2="17"></line>
+                                    </svg><small class="text-white pl-1">常见问题</small>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <!-- LOGIN FORM -->
+                    <!--===================================================-->
+                    <form class="js-ajax-login-form" action="{:url('public/doLogin')}" method="post">
+                        <div class="form-panel h-100 p-3 pt-5 position-relative">
+                            <div class="form-panel-header">
+                                <h6 class="h9">登录</h6>
+                                <h6 class="font-weight-bold mb-3">{:lang('CHECK_LOGIN_TYPE')}</h6>
+                                <div class="row sys-access mb-3">
+                                    <div class="sys-access-item col-md-4 pr-0 pl-0 active">
+                                        <input type="radio" name="access" id="Administrator" checked="checked" value="1">
+                                        <label for="Administrator" class="w-100 p-2 mb-0 pl-3 pr-4 rounded"><small class="h9">Administrator</small>
+                                            <p class="h8 mb-0 font-weight-bold">{:lang('LOGIN_TYPE_ADMIN')}</p>
+                                        </label>
+                                    </div>
+                                    <div class="sys-access-item col-md-4 pr-0">
+                                        <input type="radio" name="access" id="Manager" value="2">
+                                        <label for="Manager" class="w-100 p-2 mb-0 pl-3 pr-4 rounded"><small class="h9">Manager</small>
+                                            <p class="h8 mb-0 font-weight-bold">{:lang('LOGIN_TYPE_MANAGER')}</p>
+                                        </label>
+                                    </div>
+                                    <div class="sys-access-item col-md-4 pr-0">
+                                        <input type="radio" name="access" id="Developer" value="9">
+                                        <label for="Developer" class="w-100 p-2 mb-0 pl-3 pr-4 rounded"><small class="h9">Developer</small>
+                                            <p class="h8 mb-0 font-weight-bold">{:lang('LOGIN_TYPE_DEVELOPER')}</p>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-panel-body position-relative pt-5">
+                                <div class="form-group position-absolute mb-0">
+                                    <div class="do-login-msg w-100 text-center sr-only">
+                                        <span class="h8 text-danger">错误信息</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" id="input_username" class="form-control h7" name="username" aria-describedby="" placeholder="{:lang('USERNAME_OR_EMAIL')}" value="{:cookie('admin_username')}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="password" id="input_password" class="form-control h7" name="password" placeholder="{:lang('PASSWORD')}">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block mt-5 js-ajax-login-submit">{:lang('LOGIN')}</button>
+                            </div>
+                            <div class="form-panel-footer text-right mt-5">
+                                <a href="#" class="h8 d-inline-block pt-3">{:lang('FIND_BACK_PASSWORD')}</a>
+                            </div>
+                        </div>
+                    </form>
+                    <!--===================================================-->
+                    <!-- END OF LOGIN FORM -->
+                </div>
+            </div>
+        </div>
+        <div class="footer copyright text-center h9 position-absolute w-100">
+            <p class="mb-0 ">
+                Copyright © 2019 - 2019 HZXX.All Rights Reserved.
+            </p>
+            <p>
+                京ICP证030173号
+            </p>
+        </div>
+        <!--===================================================-->
+        <!-- END OF FOOTER -->
+    </div>
+    <!--===================================================-->
+    <!-- END OF CONTAINER -->
+    <script type="text/javascript">
+    //全局变量
+    var GV = {
+        ROOT: "__ROOT__/",
+        WEB_ROOT: "__WEB_ROOT__/",
+        JS_ROOT: "public/static/js/",
+        APP: '' /*当前应用名*/
+    };
+    </script>
+    <script src="__TMPL__/public/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="__STATIC__/js/wind.js"></script>
+    <script src="__STATIC__/js/admin.js"></script>
+    <script>
+    (function() {
+        document.getElementById('input_username').focus();
+        
+        $('#input_username, #input_password').on('focus', function() {
+            $('.do-login-msg').addClass('sr-only').find('span').text("");
+        });
+
+        $('.sys-access-item label').on('click', function(e) {
+            $(this).parent().addClass('active').siblings().removeClass('active');
+        });
+        
+    })();
+    </script>
+</body>
+
+</html>

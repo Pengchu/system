@@ -1,0 +1,3 @@
+---------------------------------------------------------------
+[2019-05-20T12:09:21+08:00] ::1 GET localhost/system/index.php?s=install/index/step2
+[ error ] [2]scandir(E:\Workspace\Website\system\route\,E:\Workspace\Website\system\route\): ϵͳ�Ҳ���ָ�����ļ��� (code: 2)

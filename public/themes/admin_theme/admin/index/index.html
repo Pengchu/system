@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh_CN" style="overflow: hidden;">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+    <meta charset="utf-8">
+    <title>首页 - {:lang('ADMIN_CENTER')}</title>
+    <meta name="description" content="This is page-header (.page-header &gt; h1)">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim for IE8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
+    <link href="__STATIC__/js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__TMPL__/public/assets/themes/{:cmf_get_admin_style()}/css/admin.css" rel="stylesheet">
+    <link href="__TMPL__/public/assets/themes/{:cmf_get_admin_style()}/css/admin-icon.min.css" rel="stylesheet" type="text/css">
+    <!--Pace - Page Load Progress Par [OPTIONAL]-->
+    <link href="__STATIC__/js/pace/pace.min.css" rel="stylesheet">
+    <script src="__STATIC__/js/pace/pace.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        //全局变量
+    var GV = {
+        HOST: "{$_SERVER['HTTP_HOST']|default=''}",
+        ROOT: "__ROOT__/",
+        WEB_ROOT: "__WEB_ROOT__/",
+        JS_ROOT: "public/static/js/"
+    };
+    </script>
+    <!-- MENU LIST -->
+    <!--===================================================-->
+    <php>$submenus=$menus;</php>
+    <php>
+        if (!function_exists('getsubmenu')) {
+        function getsubmenu($submenus){
+    </php>
+    <notempty name="submenus">
+        <php>foreach($submenus as $menu){</php>
+        <li>
+            <php>
+                $menu_name=lang($menu['lang']);
+                $menu_name=$menu['lang']==$menu_name?$menu['name']:$menu_name;
+            </php>
+            <php>if(empty($menu['items'])){</php>
+            <a href="javascript:openapp('{$menu.url}','{$menu.id}','{$menu_name}',true);">
+                <i class="admin-psi-{$menu.icon|default='desktop'}"></i>
+                <span class="menu-text">
+                    <strong class="h8 font-weight-normal">{$menu_name}</strong>
+                </span>
+            </a>
+            <php>}else{</php>
+            <a href="#">
+                <i class="admin-psi-{$menu.icon|default='desktop'}"></i>
+                <span class="menu-title h8 font-weight-normal">{$menu_name}</span>
+                <i class="arrow"></i>
+            </a>
+            <ul class="collapse">
+                <php>getsubmenu1($menu['items'])</php>
+            </ul>
+            <php>}</php>
+        </li>
+        <php>}</php>
+    </notempty>
+    <php>
+        }
+        }
+    </php>
+    <php>
+        if (!function_exists('getsubmenu1')) {
+        function getsubmenu1($submenus){
+    </php>
+    <php>foreach($submenus as $menu){</php>
+    <li>
+        <php>
+            $menu_name=lang($menu['lang']);
+            $menu_name=$menu['lang']==$menu_name?$menu['name']:$menu_name;
+        </php>
+        <php>if(empty($menu['items'])){</php>
+        <a href="javascript:openapp('{$menu.url}','{$menu.id}','{$menu_name}',true);">{$menu_name}</a>
+        <php>}</php>
+    </li>
+    <php>}</php>
+    <php>
+        }
+        }
+    </php>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--End MENU LIST-->
+    <if condition="APP_DEBUG">
+        <style>
+            #think_page_trace_open {
+            left: 0 !important;
+            right: initial !important;
+        }
+        </style>
+    </if>
+</head>
+
+<body>
+    <div id="container" class="effect mh-100 mainnav-lg">
+        <!--NAVBAR-->
+        <!--===================================================-->
+        <header id="navbar" class="w-100 position-fixed p-0">
+            <div id="navbar-container" class="boxed shadow-sm">
+                <!--Brand logo & name-->
+                <!--================================-->
+                <div class="navbar-header float-left">
+                    <a href="{:url('admin/index/index')}" class="navbar-brand p-0 mr-0">
+                        <img src="__STATIC__/images/logo.png" alt="{:lang('ADMIN_CENTER')} Logo" class="brand-icon float-left ml-1 mr-1">
+                        <div class="brand-title">
+                            <span class="brand-text d-block h6 font-weight-bold m-0 pl-5">{:lang('ADMIN_CENTER')}</span>
+                        </div>
+                    </a>
+                </div>
+                <!--================================-->
+                <!--End brand logo & name-->
+                <!--Navbar Dropdown-->
+                <!--================================-->
+                <div class="navbar-content d-flex position-relative">
+                    <ul class="nav navbar-top-links navbar-control-left">
+                        <!--Navigation toogle button-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li class="tgl-menu-btn">
+                            <a class="mainnav-toggle text-center d-inline-block hover-animate" href="#">
+                                <i class="admin-pli-view-list h6"></i>
+                            </a>
+                        </li>
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--End Navigation toogle button-->
+                        <li class="tgl-menu-btn">
+                            <a href="#" class="text-center d-inline-block hover-animate" id="refresh-wrapper">
+                                <i class="admin-pli-repeat-2"></i>
+                            </a>
+                        </li>
+                        <!--Mega dropdown-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!-- <li class="mega-dropdown">
+                            <a href="#" class="mega-dropdown-toggle text-center d-inline-block">
+                                <i class="admin-pli-layout-grid h6"></i>
+                            </a>
+                        </li> -->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--End mega dropdown-->
+                    </ul>
+                    <div id="pagetabs-list" class="flex-fill position-relative">
+                        <a class="pagetab-control" href="javascript:;" id="pagetab-pre">
+                            <i class="admin-psi-arrow-left h7"></i>
+                        </a>
+                        <a href="javascript:;" class="pagetab-control" id="pagetab-next">
+                            <i class="admin-psi-arrow-right h7"></i>
+                        </a>
+                        <a href="javascript:;" class="pagetab-control" id="close-wrapper">
+                            <i class="admin-psi-close h7"></i>
+                        </a>
+                        <ul class="mb-0 navbar-top-links navbar-pagetabs" id="navbar-pagetabs">
+                            <li class="tgl-menu-btn home active" app-id="0" app-url="{:url('main/index')}" app-name="{:lang('HOME')}">{:lang('HOME')}</li>
+                        </ul>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-control-right">
+                        <!--Notification dropdown-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li class="tgl-menu-btn">
+                            <a href="#" class="text-center d-inline-block position-relative hover-animate" aria-expanded="false">
+                                <i class="admin-pli-bell h6"></i>
+                                <span class="badge badge-header badge-danger"></span>
+                            </a>
+                        </li>
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--End notifications dropdown-->
+                        <!--User dropdown-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li id="dropdown-user" class="mega-dropdown tgl-menu-btn">
+                            <a href="#" class="mega-dropdown-toggle text-right w-auto pr-3 hover-animate">
+                                <span class="float-right">
+                                    <!--<img class="img-circle img-user media-object" src="picture/1.png" alt="Profile Picture">-->
+                                    <i class="admin-pli-male ic-user h6"></i>
+                                </span>
+                                <div class="username float-left text-right hidden-xs h8 pl-3 pr-2">Administrator</div>
+                            </a>
+                            <div class="dropdown-menu mega-dropdown-menu p-3 shadow rounded-0">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        <div class="media pt-2 pl-2 pr-2 pb-3 row">
+                                            <div class="col-3 d-flex justify-content-center align-items-center" style="height: 100px">
+                                                <canvas id="demo-weather-lg-icon-1" width="64" height="64"></canvas>
+                                            </div>
+                                            <div class="media-body col-9 p-0">
+                                                <h6 class="mb-0 clearfix text-muted">
+                                                    <span class="h8 float-left">2019年06月03日</span>
+                                                    <small class="float-right h9 pr-2"><i class="admin-pli-map-marker-2 mr-1"></i>山东省, 枣庄市</small>
+                                                </h6>
+                                                <p class="h7 text-muted">今天</p>
+                                                <p class="h7 text-muted">天太热了，吃个西瓜~</p>
+                                                <!-- <p class="mb-0 h7 text-muted pt-2 pb-2">
+                                                    <span class="badge badge-pill badge-info">101 轻度污染</span>
+                                                    <span class="badge badge-pill badge-info">大风预警</span>
+                                                    <span class="badge badge-pill badge-info">高温预警</span>
+                                                </p> -->
+                                                <span class="text-sm text-muted">晴</span>
+                                                <span class="text-sm text-muted ml-3">温度 27&#176;</span>
+                                                <span class="text-sm text-muted ml-3">湿度 61%</span>
+                                                <span class="text-sm text-muted ml-3">气压 992hPa</span>
+                                            </div>
+                                        </div>
+                                        <p class="border-top h9 pt-3 mb-0 text-muted">内心是力量的源泉——对胜利不满足的渴望，对目标不吝啬的努力，对困难无止境的抗争。</p>
+                                    </div>
+                                    <div class="col-sm-4 col-md-4 pt-2">
+                                        <!--Mega menu list-->
+                                        <ul class="list-unstyled">
+                                            <li class="h6 font-weight-bold mb-3"><i class="admin-pli-computer-secure mr-2"></i> 常用</li>
+                                            <li class="tag tag-sm border"><a href="#">文章管理</a></li>
+                                            <li class="tag tag-sm border"><a href="#">幻灯片管理</a></li>
+                                            <li class="tag tag-sm border"><a href="#">会员管理</a></li>
+                                            <li class="tag tag-sm border"><a href="#">数据统计</a></li>
+                                            <li class="tag tag-sm border"><a href="#">SEO优化</a></li>
+                                            <li class="tag tag-sm border"><a href="#">权限管理</a></li>
+                                            <li class="tag tag-sm border"><a href="#">图片管理</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-2 col-md-2 pt-2">
+                                        <ul class="list-unstyled">
+                                            <li class="h6 font-weight-bold"><i class="admin-pli-gear mr-2"></i>设置</li>
+                                            <li><a href="#" class="pl-2">网站信息</a></li>
+                                            <li><a href="#" class="pl-2">个人信息</a></li>
+                                            <li><a href="#" class="pl-2">修改密码</a></li>
+                                            <li><a href="#" class="pl-2">常见问题</a></li>
+                                        </ul>
+                                        <a href="#" class="btn btn-sm btn-block h7 btn-danger rounded-0 mt-3">注销</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--End user dropdown-->
+                        <li class="tgl-menu-btn">
+                            <a href="#" class="aside-toggle navbar-aside-icon text-center hover-animate">
+                                <svg class="feather feather-more-vertical sc-dnqmqq jxshSx" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-reactid="856">
+                                    <circle cx="12" cy="12" r="1"></circle>
+                                    <circle cx="12" cy="5" r="1"></circle>
+                                    <circle cx="12" cy="19" r="1"></circle>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--================================-->
+                <!--End Navbar Dropdown-->
+            </div>
+        </header>
+        <!--===================================================-->
+        <!--END NAVBAR-->
+        <div class="boxed">
+            <!--CONTENT CONTAINER-->
+            <!--===================================================-->
+            <div id="content-container">
+                <!--Page content-->
+                <!--===================================================-->
+                <div id="page-content" class="h-100 w-100">
+                    <iframe src="{:url('Main/index')}" frameborder="0" id="appiframe-0"
+                    class="appiframe w-100 h-100"></iframe>
+                </div>
+                <!--===================================================-->
+                <!--End page content-->
+            </div>
+            <!--===================================================-->
+            <!--END CONTENT CONTAINER-->
+            <!-- MAIN NAVIGATION -->
+            <!--===================================================-->
+            <nav id="mainnav-container" class="mh-100">
+                <div id="mainnav" class="h-100">
+                    <!--Menu-->
+                    <!--================================-->
+                    <div id="mainnav-menu-wrap" class="h-100">
+                        <div class="nano">
+                            <div class="nano-content" tabindex="0">
+                                <!--Profile Widget-->
+                                <!--================================-->
+                                <div id="mainnav-profile" class="mainnav-profile">
+                                    <div class="profile-wrap pt-4 pl-3 pr-3 pb-2">
+                                        <div class="pb-3">
+                                            <img class="rounded-circle img-sm shadow-sm" src="__TMPL__/public/assets/images/avatars/icon-man-01.png" alt="Profile Picture">
+                                        </div>
+                                        <!-- <div class="admin-vfx">
+                                            <iframe src="{:url('Vfx/init')}" frameborder="0" class="w-100 h-100 border-0"></iframe>
+                                        </div> -->
+                                        <a href="#profile-nav" class="d-block" data-toggle="collapse" aria-expanded="true">
+                                            <p class="m-0 font-weight-bold text-white">Administrator</p>
+                                            <!-- <span class="mnp-desc">aaron.cha@themeon.net</span> -->
+                                        </a>
+                                    </div>
+                                </div>
+                                <!--Shortcut buttons-->
+                                <!--================================-->
+                                <div id="mainnav-shortcut">
+                                    <ul class="list-unstyled w-100 m-0 p-0 row">
+                                        <li class="col-3" data-content="首页">
+                                            <a class="shortcut-grid" href="#">
+                                                <i class="admin-psi-home"></i>
+                                            </a>
+                                        </li>
+                                        <li class="col-3" data-content="个人信息">
+                                            <a class="shortcut-grid" href="#">
+                                                <i class="admin-psi-male"></i>
+                                            </a>
+                                        </li>
+                                        <li class="col-3" data-content="资源管理">
+                                            <a class="shortcut-grid" href="javascript:openapp('{:url('user/AdminAsset/index')}','userAdminAssetindex','资源管理',true);">
+                                                <i class="admin-psi-inbox-full"></i>
+                                            </a>
+                                        </li>
+                                        <li class="col-3" data-content="清除缓存">
+                                            <a class="shortcut-grid" href="javascript:openapp('{:url('admin/Setting/clearcache')}">
+                                                <i class="admin-psi-recycling"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--================================-->
+                                <!--End shortcut buttons-->
+                                <ul id="mainnav-menu" class="list-group mt-3">
+                                    {:getsubmenu($submenus)}
+                                </ul>
+                                <!--Widget-->
+                                <!--================================-->
+                                <div class="mainnav-widget">
+                                    <!-- Show the button on collapsed navigation -->
+                                    <div class="show-small">
+                                        <a href="#" data-toggle="menu-widget" data-target="#storage">
+                                            <i class="admin-psi-folder-organizing"></i>
+                                        </a>
+                                    </div>
+                                    <!-- Hide the content on collapsed navigation -->
+                                    <div id="storage" class="hide-small mainnav-widget-content">
+                                        <ul class="list-unstyled list-group">
+                                            <li class="list-header h8">存储</li>
+                                            <li class="mb-3 pt-2 pl-3 pr-3 pb-4">
+                                                <span class="badge badge-primary float-right h8">15%</span>
+                                                <p class="text-white h8">已用空间</p>
+                                                <div class="progress" style="height: 4px; background-color: rgba(0, 0, 0, .1);">
+                                                    <div class="progress-bar" role="progressbar" style="width: 15%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </li>
+                                            <li class="pl-2 pr-2 pb-3"><a href="{:url('public/logout')}" class="btn btn-danger w-100 h8 rounded-0">注销</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!--================================-->
+                                <!--End widget-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--================================-->
+                    <!--End menu-->
+                </div>
+            </nav>
+            <!--===================================================-->
+            <!--END NAVIGATION-->
+        </div>
+        <!-- FOOTER -->
+        <!--===================================================-->
+        <footer id="footer" class="position-fixed">
+            <!-- Visible when footer positions are fixed -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <div class="show-fixed float-right">
+                <a href="#" class="h8 text-muted pr-3">联系我们</a>
+            </div>
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <!-- Remove the class "show-fixed" and "hide-fixed" to make the content always appears. -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <p class="h8 text-muted float-left pl-3">© 2016 和众信息&nbsp;版权所有</p>
+        </footer>
+        <!--===================================================-->
+        <!-- END FOOTER -->
+        <!-- SCROLL PAGE BUTTON -->
+        <!--===================================================-->
+        <!--===================================================-->
+    </div>
+    <script src="__STATIC__/js/jquery-3.4.1.min.js"></script>
+    <script src="__STATIC__/js/wind.js"></script>
+    <script src="__STATIC__/js/bootstrap/js/popper.min.js"></script>
+    <script src="__STATIC__/js/bootstrap/js/bootstrap.min.js"></script>
+    <script src="__STATIC__/js/admin.js"></script>
+    <script src="__TMPL__/public/assets/themes/{:cmf_get_admin_style()}/js/skycons.min.js"></script>
+    <script src="__TMPL__/public/assets/themes/{:cmf_get_admin_style()}/js/vfx.min.js"></script>
+    <script>
+    $(function() {
+        var skyconsOptions = {
+            "color": "#acb2b7",
+            "resizeClear": true
+        }
+        var skycons = new Skycons(skyconsOptions);
+        skycons.add("demo-weather-lg-icon-1", Skycons.CLEAR_DAY);
+        skycons.play();
+
+        var menus = {:$menus_js_var };
+        //读取url参数。尝试执行菜单功能。
+        if (typeof(menus) != "undefined") {
+
+            var tw = window.top;
+            var twa = tw.location.href.split("#");
+            var url = twa[1];
+            var urlTmp = url;
+            if (url != null) {
+                //去掉/ 去掉_ 全部小写。
+                urlTmp = urlTmp.replace(/[\\/|_|]/g, "");
+                urlTmp = urlTmp.replace(".html", "");
+                var menu = menus[urlTmp];
+                if (menu) {
+                    openapp(url, menu.id + menu.app, menu.name, true);
+                }
+            }
+        }
+    });
+    </script>
+</body>
+
+</html>
