@@ -56,7 +56,8 @@ a:focus {
 #navbar {
     background-color: transparent;
     left: 0;
-    top: 0
+    top: 0;
+    z-index: 9
 }
 
 #navbar-container {
@@ -152,6 +153,11 @@ a:focus {
     -webkit-transition: all .4s;
 }
 
+.navbar-top-links.navbar-pagetabs>li.home {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
 .navbar-top-links.navbar-pagetabs>li:not(:first-child) {
     padding-left: 2rem;
 }
@@ -199,10 +205,10 @@ a:focus {
     top: 0;
     background-color: white;
     opacity: 0;
-    z-index: 9
 }
 
 #pagetabs-list.show > a {
+    z-index: 9
     opacity: 1;
 }
 
